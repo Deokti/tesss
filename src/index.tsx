@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './components/App';
 import reportWebVitals from './reportWebVitals';
 import "@fontsource/poppins";
+import 'macro-css';
 import './index.scss';
+import { Page } from './pages';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Page />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,4 +1,5 @@
 @import "./assets/scss/bootstrap-reboot.min.scss";
+@import "./assets/scss/variables.scss";
 
 body {
 	display: flex;
@@ -11,4 +12,10 @@ body {
 	background: linear-gradient(115.67deg, #EDC1D3 7.14%, #91BDEC 99.42%);
 
 	font-family: Poppins, sans-serif;
+}
+
+.transition {
+	transition-timing-function: cubic-bezier(0.24, 0.22, 0.015, 1.56);
+	transition-duration: $transitionDuration;
+	transition-property: transform, font-size;
 }

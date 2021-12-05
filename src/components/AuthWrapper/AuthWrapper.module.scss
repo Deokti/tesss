@@ -1,21 +1,37 @@
+@import "../../assets/scss/colors.scss";
+
 .wrapper {
 	min-width: 400px;
 
-	min-height: 450px;
 	padding: 40px;
+	padding-bottom: 20px;
 
 	border-radius: 30px;
 
 	background: #FFF;
 	background-color: #FFF;
-	box-shadow: 0 4px 40px #8CA4D8;
+	box-shadow: 0 4px 40px $ShadowColor;
 }
 
 .title {
 	text-transform: uppercase;
 
-	color: #000;
+	color: $MainBlack;
 
 	font-size: 22px;
 	font-weight: 700;
+}
+
+.redirect {
+	text-transform: uppercase;
+
+	color: rgb(0 0 0 / 40%);
+
+	font-size: 11px;
+
+	&:hover {
+		text-decoration: underline;
+
+		color: rgb(0 0 0 / 40%);
+	}
 }

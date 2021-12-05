@@ -8,6 +8,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps): ReactElement => {
 	const {
 		appearance,
 		children,
+		className,
 		...anotherProps
 	} = props;
 
@@ -15,7 +16,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps): ReactElement => {
 		<button className={cn(styles.button, {
 			[styles.linear]: appearance === 'linear',
 			[styles.linearGradient]: appearance === 'linear-gradient',
-		})} {...anotherProps}>
+		}, className)} {...anotherProps}>
 			{appearance === 'linear' && <AiOutlinePlusSquare fontSize={20} />}
 			{children}
 		</button>

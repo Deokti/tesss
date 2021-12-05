@@ -1,3 +1,5 @@
+@import "../../assets/scss/mixins.scss";
+
 .button {
 	width: 100%;
 
@@ -23,7 +25,7 @@
 
 	overflow: hidden;
 
-	min-height: 35px;
+	min-height: 40px;
 
 	text-transform: uppercase;
 
@@ -44,12 +46,11 @@
 
 		content: "";
 
-		transition-timing-function: cubic-bezier(0.24, 0.22, 0.015, 1.56);
-		transition-duration: 0.5s;
-		transition-property: all;
-
 		border-radius: 5px;
 		background: linear-gradient(115deg, #EDC1D3 55%, #91BDEC 99%);
+
+		/* stylelint-disable-next-line at-rule-no-unknown */
+		@include transition;
 	}
 
 	&:hover {

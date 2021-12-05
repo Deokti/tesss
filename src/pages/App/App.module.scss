@@ -1,3 +1,5 @@
+@import '../../assets/scss/colors.scss';
+
 .app {
 	width: 1374px;
 	height: 825px;
@@ -7,5 +9,5 @@
 
 	border-radius: 30px;
 	background: #FFF;
-	box-shadow: 0 4px 40px #8CA4D8;
+	box-shadow: 0 4px 40px $ShadowColor;
 }
