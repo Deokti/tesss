@@ -1,0 +1,65 @@
+.button {
+	width: 100%;
+
+	color: #FFF;
+	border: none;
+}
+
+.linear {
+	max-width: 140px;
+	height: 34px;
+
+	border-radius: 10px;
+	background-color: #884CB2;
+
+	svg {
+		margin-right: 5px;
+	}
+}
+
+.linearGradient {
+	position: relative;
+	z-index: 1;
+
+	overflow: hidden;
+
+	min-height: 35px;
+
+	text-transform: uppercase;
+
+	border-radius: 5px;
+	background: linear-gradient(115.67deg, #EDC1D3 7.14%, #91BDEC 99.42%);
+
+	font-size: 14px;
+	font-weight: 600;
+
+	&::before {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+
+		width: 0;
+		height: 100%;
+
+		content: "";
+
+		transition-timing-function: cubic-bezier(0.24, 0.22, 0.015, 1.56);
+		transition-duration: 0.5s;
+		transition-property: all;
+
+		border-radius: 5px;
+		background: linear-gradient(115deg, #EDC1D3 55%, #91BDEC 99%);
+	}
+
+	&:hover {
+		&::before {
+			width: 100%;
+		}
+	}
+
+	&:focus {
+		opacity: 0.8;
+		outline: none;
+	}
+}

@@ -1,0 +1,14 @@
+@import "./assets/scss/bootstrap-reboot.min.scss";
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	min-height: 100vh;
+
+	background: linear-gradient(115.67deg, #EDC1D3 7.14%, #91BDEC 99.42%);
+
+	font-family: Poppins, sans-serif;
+}
