@@ -8,12 +8,9 @@ import { Register } from './Register';
 export const Page = () => {
 	return (
 		<Routes>
-
 			<Route path="/" element={<App />} />
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Register />} />
-
-
 		</Routes>
 	);
 };
