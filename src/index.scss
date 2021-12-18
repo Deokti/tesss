@@ -18,5 +18,5 @@ body {
 .transition {
 	transition-timing-function: cubic-bezier(0.24, 0.22, 0.015, 1.56);
 	transition-duration: $transitionDuration;
-	transition-property: transform, font-size, color, opacity;
+	transition-property: transform, font-size, color, opacity, fill;
 }

@@ -1,0 +1,108 @@
+.wrapper {
+	position: relative;
+}
+
+.chip {
+	min-width: 95px;
+
+	cursor: pointer;
+	white-space: nowrap;
+
+	border-radius: 8.5px;
+
+	font-family: Montserrat, sans-serif;
+}
+
+.inProgress {
+	color: #56CCF2;
+	background-color: #56CCF233;
+}
+
+.pending {
+	color: #F2994A;
+	background-color: #F2994A33;
+}
+
+.completed {
+	color: #28AF60;
+	background-color: #27AE6033;
+}
+
+.cancelled {
+	color: #EB5757;
+	background-color: #EB575733;
+}
+
+.value {
+	display: block;
+
+	padding: 2px 17px;
+
+	border-radius: 8.5px;
+
+	font-size: 11px;
+	font-weight: 800;
+	line-height: 18px;
+}
+
+.list {
+	position: absolute;
+	z-index: 5;
+	bottom: 0;
+	left: 0;
+
+	width: 100%;
+
+	margin-bottom: 0;
+	padding: 10px 0;
+
+	list-style: none;
+
+	transform: translateY(110%);
+	pointer-events: none;
+
+	opacity: 0;
+
+	color: #5C626D;
+	border-radius: 5px;
+	background-color: #FFF;
+	box-shadow: 0 0 30px rgb(0 0 0 / 15%);
+
+	font-size: 11px;
+	font-weight: 400;
+	line-height: 18px;
+}
+
+.open {
+	transform: translateY(105%);
+	pointer-events: all;
+
+	opacity: 1;
+}
+
+.item {
+	position: relative;
+
+	padding: 5px 15px;
+
+	cursor: pointer;
+	white-space: nowrap;
+
+	background-color: transparent;
+
+	&.inProgress:hover {
+		background-color: #56CCF233;
+	}
+
+	&.pending:hover {
+		background-color: #F2994A33;
+	}
+
+	&.completed:hover {
+		background-color: #27AE6033;
+	}
+
+	&.cancelled:hover {
+		background-color: #EB575733;
+	}
+}

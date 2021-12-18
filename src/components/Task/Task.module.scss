@@ -1,0 +1,86 @@
+@import "../../assets/scss/colors.scss";
+
+.task {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	max-width: 100%;
+	padding: 20px 18px;
+
+	border-bottom: 0.5px solid $BorderColor;
+
+	font-family: Montserrat, sans-serif;
+}
+
+.title {
+	position: relative;
+
+	flex: 1;
+
+	margin: 0;
+
+	color: $MainBlack;
+
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 17px;
+
+	&::before,
+	&::after {
+		position: absolute;
+		top: 50%;
+		left: -15px;
+
+		content: "";
+		transform: translateY(-50%);
+
+		border-radius: 50%;
+	}
+
+	&::before {
+		width: 6px;
+		height: 6px;
+
+		background: linear-gradient(133.9deg, rgb(243 71 122 / 70%) 0.24%, rgb(136 76 178 / 70%) 95.04%);
+	}
+
+	&::after {
+		left: -17px;
+
+		width: 10px;
+		height: 10px;
+
+		background: linear-gradient(133.9deg, rgb(243 71 122 / 20%) 0.24%, rgb(136 76 178 / 20%) 95.04%);
+	}
+}
+
+.delete {
+	cursor: pointer;
+
+	&:hover {
+		fill: #EB5757;
+	}
+}
+
+.chips {
+	flex: 1;
+
+	max-width: 200px;
+	margin-right: 20%;
+}
+
+.margin {
+	margin-right: 70px;
+}
+
+.edit {
+	margin-right: 40px;
+
+	cursor: pointer;
+
+	&:hover {
+		fill: #28AF60;
+	}
+}
