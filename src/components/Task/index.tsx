@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import { ChipPriority } from '../ChipPriority';
 import { ChipWorkflow } from '../ChipWorkflow';
 import styles from './Task.module.scss';
-import { TaskProps } from './Task.props';
+import { ITask } from './Task.props';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { RiPencilFill } from 'react-icons/ri';
 import cn from 'classnames';
 
-export const Task: FC<TaskProps> = ({ title, priority, workflow }: TaskProps) => {
+export const Task: FC<ITask> = ({ title, priority, workflow }: ITask) => {
 
 	return (
 		<div className={styles.task}>
