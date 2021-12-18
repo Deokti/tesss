@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Profile } from '../Profile';
 import { Search } from '../Search';
 
-export const Header = () => {
+export const Header = (): ReactElement => {
 	return (
 		<header className='d-flex justify-between align-center'>
 			<Search />

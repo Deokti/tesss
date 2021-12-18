@@ -1,5 +1,6 @@
 @import "./assets/scss/bootstrap-reboot.min.scss";
 @import "./assets/scss/variables.scss";
+@import "./assets/scss/mixins.scss";
 
 body {
 	display: flex;
@@ -17,5 +18,5 @@ body {
 .transition {
 	transition-timing-function: cubic-bezier(0.24, 0.22, 0.015, 1.56);
 	transition-duration: $transitionDuration;
-	transition-property: transform, font-size;
+	transition-property: transform, font-size, color, opacity;
 }

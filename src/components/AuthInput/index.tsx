@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, ReactElement, useState } from 'react';
+import React, { ChangeEvent, FC, ReactElement, SyntheticEvent, useState } from 'react';
 import styles from './AuthInput.module.scss';
 import { AuthInputProps } from './AuthInput.props';
 import cn from 'classnames';
@@ -17,7 +17,7 @@ export const AuthInput: FC<AuthInputProps> = (props: AuthInputProps): ReactEleme
 		setIsEmpty(!!event.currentTarget.value);
 	};
 
-	const onChangePasswordVisible = (event: any) => {
+	const onChangePasswordVisible = (event: SyntheticEvent) => {
 		event.preventDefault();
 		setIsPasswordVisible(!isPasswordVisible);
 	};
