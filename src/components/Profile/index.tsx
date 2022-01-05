@@ -5,9 +5,18 @@ import cn from "classnames";
 
 import ClickAwayListener from "react-click-away-listener";
 import { useClickAwayListener } from "../../hooks/useClickAwayListener";
+import { useAppSelector } from "../../hooks/redux";
+import { useDispatch } from "react-redux";
+import { authSlice } from "../../store/reducers/auth";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 export const Profile: FC<ProfileProps> = ({ avatar, ...props }: ProfileProps) => {
 	const [isToggle, onClickAway, open] = useClickAwayListener();
+	const user = useAppSelector((store) => store.auth.user);
+	const { logout } = authSlice.actions;
+	const dispatch = useDispatch();
+
+	const onLogout = (): PayloadAction => dispatch(logout());
 
 	return (
 		<ClickAwayListener onClickAway={onClickAway}>
@@ -15,6 +24,7 @@ export const Profile: FC<ProfileProps> = ({ avatar, ...props }: ProfileProps) =>
 				<div
 					style={{ backgroundImage: `url(${avatar})` }}
 					className={styles.avatar}
+					title={user?.email}
 					onClick={open}
 				/>
 
@@ -24,7 +34,9 @@ export const Profile: FC<ProfileProps> = ({ avatar, ...props }: ProfileProps) =>
 					})}
 				>
 					<li className={cn(styles.item, "transition")}>Изменить аватар</li>
-					<li className={cn(styles.item, "transition")}>Выйти из аккаунта</li>
+					<li className={cn(styles.item, "transition")} onClick={onLogout}>
+						Выйти из аккаунта
+					</li>
 				</ul>
 			</div>
 		</ClickAwayListener>

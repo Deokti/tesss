@@ -42,7 +42,7 @@ export const authRegister = createAsyncThunk(
 	},
 );
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
 	name: "auth",
 	initialState,
 	reducers: {
@@ -70,7 +70,7 @@ const authSlice = createSlice({
 			state.loading = true;
 		},
 		[authRegister.fulfilled.type]: (state: IAuthState, action: PayloadAction<IUser>) => {
-			state.isAuth = false;
+			state.isAuth = true;
 			state.loading = false;
 			state.user = action.payload;
 		},
