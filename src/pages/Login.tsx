@@ -3,43 +3,17 @@ import React, { FC, ReactElement } from "react";
 import { AuthInput } from "../components/AuthInput";
 import { AuthWrapper } from "../components/AuthWrapper";
 import { Button } from "../components/Button";
-import { IUser, UserModel } from "../models/user.module";
-import * as yup from "yup";
-import { AuthService } from "../auth/auth.service";
+import { useAppDispatch } from "../hooks/redux";
+import { authLogin } from "../store/reducers/auth";
+import { useValidate } from "../hooks/useValidate";
 
 export const Login: FC = (): ReactElement => {
-	const formik = useFormik({
-		initialValues: initialValues(),
-		validationSchema: validationSchema(),
-		validateOnBlur: true,
-		onSubmit,
-	});
-
-	function initialValues(): IUser {
-		return {
-			email: "",
-			password: "",
-		};
-	}
-
-	function validationSchema(): Object {
-		return yup.object().shape({
-			email: yup
-				.string()
-				.email("Не корректный Email адресс!")
-				.required("Поле должно быть заполнено!"),
-			password: yup
-				.string()
-				.min(5, "Пароль должен содержать не менее 5 символов")
-				.required("Поле должно быть заполнено!"),
-		});
-	}
+	const dispatch = useAppDispatch();
+	const formik = useValidate({ onSubmit });
 
 	async function onSubmit(): Promise<void> {
 		const { email, password } = formik.values;
-
-		const response = await AuthService.login({ email, password });
-		console.log(response);
+		dispatch(authLogin({ email, password }));
 	}
 
 	return (
