@@ -1,9 +1,8 @@
-import React, { ReactElement } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { App } from '../components/App';
-import { Login } from './Login';
-import { Register } from './Register';
-
+import React, { ReactElement } from "react";
+import { Route, Routes } from "react-router-dom";
+import { App } from "../components/App";
+import { Login } from "./Login";
+import { Register } from "./Register";
 
 export const Page = (): ReactElement => {
 	return (

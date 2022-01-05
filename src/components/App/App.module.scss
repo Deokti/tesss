@@ -1,13 +1,20 @@
 @import "../../assets/scss/colors.scss";
 
 .app {
+	position: relative;
+
+	overflow: hidden;
+
 	width: 1374px;
 	height: 825px;
 	margin: 20px;
 
-	padding: 45px 68px;
-
 	border-radius: 30px;
 	background: #FFF;
 	box-shadow: 0 4px 40px $ShadowColor;
+}
+
+.top {
+	padding: 45px 68px;
+	padding-bottom: 0;
 }

@@ -1,0 +1,54 @@
+.wrapper {
+	min-width: 450px;
+}
+
+.title {
+	color: #1D262C;
+
+	font-size: 18px;
+	line-height: 27px;
+}
+
+.top {
+	display: flex;
+	align-items: center;
+
+	margin-top: 20px;
+}
+
+.add {
+	margin-right: 5px;
+}
+
+.input {
+	letter-spacing: 0.01em;
+
+	color: #90A0B7;
+	border: none;
+
+	font-family: Montserrat, sans-serif;
+	font-size: 15px;
+
+	&::placeholder {
+		color: #90A0B7;
+	}
+
+	&:focus {
+		border: none;
+		outline: none;
+	}
+}
+
+.description {
+	display: block;
+
+	margin-top: 20px;
+
+	text-align: center;
+	letter-spacing: 0.01em;
+
+	color: #90A0B7;
+
+	font-size: 12px;
+	line-height: 15px;
+}

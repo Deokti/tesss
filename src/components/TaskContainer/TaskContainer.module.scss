@@ -1,4 +1,12 @@
+@import "../../assets/scss/colors.scss";
+
+.container {
+	height: calc(100% - 190px);
+}
+
 .title {
+	padding: 0 68px;
+
 	color: #1D262C;
 
 	font-size: 18px;
@@ -6,8 +14,26 @@
 }
 
 .list {
+	overflow: auto;
+
+	height: 100%;
+
 	margin-bottom: 0;
-	padding-left: 0;
+	padding: 0 68px;
 
 	list-style: none;
+
+	&::-webkit-scrollbar-thumb {
+		border: 3px solid #E0E0E0;
+		border-radius: 10px;
+		background-color: #E0E0E0;
+	}
+
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: $WebBG;
+	}
 }

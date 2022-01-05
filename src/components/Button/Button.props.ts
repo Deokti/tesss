@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
-export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+export interface ButtonProps
+	extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
 	children: string;
-	appearance: 'linear-gradient' | 'linear';
+	appearance: "linear-gradient" | "linear";
 }
