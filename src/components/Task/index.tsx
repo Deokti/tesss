@@ -50,10 +50,18 @@ export const Task: FC<TodoResponse> = (props: TodoResponse) => {
 		<div className={styles.task}>
 			{isToggle ? (
 				<form className={styles.form} onSubmit={onSubmit}>
-					<input type="text" value={newTitle} className={styles.input} onChange={onChange} />
-					<button className={styles.button} type="submit">
-						Сохранить
-					</button>
+					<label className={styles.label}>
+						<input
+							type="text"
+							value={newTitle}
+							className={styles.input}
+							onChange={onChange}
+							autoFocus
+						/>
+						<button className={styles.button} type="submit">
+							Сохранить
+						</button>
+					</label>
 				</form>
 			) : (
 				<h2 className={cn(styles.title, "pr-50")}>{title}</h2>

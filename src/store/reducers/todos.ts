@@ -6,12 +6,14 @@ interface ITodoState {
 	loading: boolean;
 	todos: TodoResponse[] | null;
 	error: string | null;
+	search: string;
 }
 
 const initialState: ITodoState = {
 	error: null,
 	loading: false,
 	todos: null,
+	search: "",
 };
 
 export const getTodoByAuthor = createAsyncThunk(
@@ -69,7 +71,11 @@ export const updateTodo = createAsyncThunk(
 export const todosSlice = createSlice({
 	name: "todos",
 	initialState,
-	reducers: {},
+	reducers: {
+		setSearch(state: ITodoState, action: PayloadAction<string>) {
+			state.search = action.payload;
+		},
+	},
 	extraReducers: {
 		[getTodoByAuthor.pending.type]: (state: ITodoState) => {
 			state.loading = true;

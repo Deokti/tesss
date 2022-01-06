@@ -6,7 +6,7 @@ import styles from "./TaskContainer.module.scss";
 import { TaskContainerProps } from "./TaskContainer.props";
 import cn from "classnames";
 import { TodoResponse } from "../../models/todo.model";
-import { Routes } from "react-router";
+import { useAppSelector } from "../../hooks/redux";
 
 const FILTER = [
 	{ id: 1, label: "Ожидаемый" },
@@ -18,12 +18,20 @@ const FILTER = [
 export const TaskContainer: FC<TaskContainerProps> = (props: TaskContainerProps) => {
 	const { todos, loading } = props;
 	const [filter, setFilter] = useState<TWorkflow>("В процессе");
+	const search = useAppSelector((store) => store.todos.search);
 
 	const onChangeFilter = (newFilter: TWorkflow) => (): void => {
 		setFilter(newFilter);
 	};
 
 	const getFilter = todos && todos.filter(({ workflow }) => workflow === filter);
+	const searchTodos = (todos: TodoResponse[], search: string): TodoResponse[] => {
+		if (search.length === 0) return todos;
+
+		return todos?.filter(({ title }) => {
+			return title.toLowerCase().includes(search.toLowerCase());
+		});
+	};
 
 	return (
 		<div className={styles.container}>
@@ -50,20 +58,22 @@ export const TaskContainer: FC<TaskContainerProps> = (props: TaskContainerProps)
 
 					<ul className={styles.list}>
 						{getFilter &&
-							getFilter.map(({ priority, title, workflow, id, author, date }) => {
-								return (
-									<li key={title}>
-										<Task
-											id={id}
-											title={title}
-											priority={priority}
-											workflow={workflow}
-											author={author}
-											date={date}
-										/>
-									</li>
-								);
-							})}
+							searchTodos(getFilter, search).map(
+								({ priority, title, workflow, id, author, date }) => {
+									return (
+										<li key={title}>
+											<Task
+												id={id}
+												title={title}
+												priority={priority}
+												workflow={workflow}
+												author={author}
+												date={date}
+											/>
+										</li>
+									);
+								},
+							)}
 					</ul>
 				</React.Fragment>
 			)}

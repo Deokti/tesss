@@ -9,6 +9,12 @@ import { useAppSelector } from "../../hooks/redux";
 import { useDispatch } from "react-redux";
 import { authSlice } from "../../store/reducers/auth";
 import { PayloadAction } from "@reduxjs/toolkit";
+import md5 from "md5";
+
+const gravatarImage = (email: string | undefined): string => {
+	if (!email) return "";
+	return `http://gravatar.com/avatar/${md5(email)}?d=identicon`;
+};
 
 export const Profile: FC<ProfileProps> = ({ avatar, ...props }: ProfileProps) => {
 	const [isToggle, onClickAway, open] = useClickAwayListener();
@@ -22,7 +28,7 @@ export const Profile: FC<ProfileProps> = ({ avatar, ...props }: ProfileProps) =>
 		<ClickAwayListener onClickAway={onClickAway}>
 			<div className={styles.profile} {...props}>
 				<div
-					style={{ backgroundImage: `url(${avatar})` }}
+					style={{ backgroundImage: `url(${gravatarImage(user?.email)})` }}
 					className={styles.avatar}
 					title={user?.email}
 					onClick={open}
@@ -33,7 +39,6 @@ export const Profile: FC<ProfileProps> = ({ avatar, ...props }: ProfileProps) =>
 						[styles.menuOpen]: isToggle,
 					})}
 				>
-					{/*<li className={cn(styles.item, "transition")}>Изменить аватар</li>*/}
 					<li className={cn(styles.item, "transition")} onClick={onLogout}>
 						Выйти из аккаунта
 					</li>
