@@ -5,4 +5,5 @@ export type TPriority = "Незначительный" | "Нормальный" 
 export interface ChipPriorityProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	value: TPriority;
+	onChangePriority?: (priority: TPriority) => void;
 }

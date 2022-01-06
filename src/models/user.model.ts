@@ -1,10 +1,10 @@
-export interface UserModel {
-	id: string;
+export interface IUser {
 	email: string;
 	password: string;
 }
 
-export interface IUser {
+export interface UserResponse {
+	id: string;
 	email: string;
 	password: string;
 }

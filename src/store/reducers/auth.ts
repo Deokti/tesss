@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AuthService } from "../../auth/auth.service";
-import { IUser } from "../../models/user.module";
+import { IUser, UserResponse } from "../../models/user.model";
 
 interface IAuthState {
 	loading: boolean;
 	isAuth: boolean;
-	user: IUser | null;
+	user: UserResponse | null;
 	error: string | null;
 }
 
@@ -57,7 +57,7 @@ export const authSlice = createSlice({
 		[authLogin.pending.type]: (state: IAuthState) => {
 			state.loading = true;
 		},
-		[authLogin.fulfilled.type]: (state: IAuthState, action: PayloadAction<IUser>) => {
+		[authLogin.fulfilled.type]: (state: IAuthState, action: PayloadAction<UserResponse>) => {
 			state.isAuth = true;
 			state.loading = false;
 			state.user = action.payload;
@@ -69,7 +69,7 @@ export const authSlice = createSlice({
 		[authRegister.pending.type]: (state: IAuthState) => {
 			state.loading = true;
 		},
-		[authRegister.fulfilled.type]: (state: IAuthState, action: PayloadAction<IUser>) => {
+		[authRegister.fulfilled.type]: (state: IAuthState, action: PayloadAction<UserResponse>) => {
 			state.isAuth = true;
 			state.loading = false;
 			state.user = action.payload;

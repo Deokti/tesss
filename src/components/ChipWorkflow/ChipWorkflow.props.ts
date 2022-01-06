@@ -5,4 +5,5 @@ export type TWorkflow = "Ожидаемый" | "В процессе" | "Выпо
 export interface ChipWorkflowProps
 	extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
 	value: TWorkflow;
+	onChangeWorkflow?: (workflow: TWorkflow) => void;
 }

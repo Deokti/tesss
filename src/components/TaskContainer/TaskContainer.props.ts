@@ -1,6 +1,6 @@
-import { ITask } from "../Task/Task.props";
+import { TodoResponse } from "../../models/todo.model";
 
 export interface TaskContainerProps {
-	title: string;
-	tasks: ITask[];
+	todos: TodoResponse[] | null;
+	loading: boolean;
 }

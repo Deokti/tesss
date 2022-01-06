@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styles from "./ChipPriority.module.scss";
 import cn from "classnames";
-import { ChipPriorityProps } from "./ChipPriority.props";
+import { ChipPriorityProps, TPriority } from "./ChipPriority.props";
 import { useClickAwayListener } from "../../hooks/useClickAwayListener";
 import ClickAwayListener from "react-click-away-listener";
 
@@ -14,7 +14,12 @@ const PRIORITY = [
 export const ChipPriority: FC<ChipPriorityProps> = (props: ChipPriorityProps) => {
 	const [isToggle, onClickAway, open] = useClickAwayListener();
 
-	const { value, className, ...anotherProps } = props;
+	const { value, className, onChangePriority, ...anotherProps } = props;
+
+	const handlerChangePriority = (priority: TPriority) => (): void => {
+		onChangePriority && onChangePriority(priority);
+		onClickAway();
+	};
 
 	return (
 		<ClickAwayListener onClickAway={onClickAway}>
@@ -41,7 +46,11 @@ export const ChipPriority: FC<ChipPriorityProps> = (props: ChipPriorityProps) =>
 				>
 					{PRIORITY.map(({ id, value, className }) => {
 						return (
-							<li key={id} className={cn(styles.item, styles[className])}>
+							<li
+								key={id}
+								className={cn(styles.item, styles[className])}
+								onClick={handlerChangePriority(value as TPriority)}
+							>
 								{value}
 							</li>
 						);

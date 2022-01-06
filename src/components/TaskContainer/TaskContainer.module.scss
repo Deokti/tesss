@@ -1,25 +1,62 @@
 @import "../../assets/scss/colors.scss";
 
 .container {
-	height: calc(100% - 190px);
+	position: relative;
+
+	height: calc(100% - 30%);
 }
 
-.title {
-	padding: 0 68px;
+.filterList {
+	display: flex;
+	align-items: center;
+
+	padding-left: 0;
+	padding-left: 68px;
+
+	list-style: none;
+}
+
+.filterItem {
+	cursor: pointer;
 
 	color: #1D262C;
 
 	font-size: 18px;
+	font-weight: 300;
 	line-height: 27px;
+
+	&:not(:last-child) {
+		margin-right: 50px;
+	}
+
+	&:nth-child(1) {
+		color: #F2994A;
+	}
+
+	&:nth-child(2) {
+		color: #56CCF2;
+	}
+
+	&:nth-child(3) {
+		color: #28AF60;
+	}
+
+	&:nth-child(4) {
+		color: #EB5757;
+	}
+}
+
+.filterItemActive {
+	font-weight: 600;
 }
 
 .list {
 	overflow: auto;
 
 	height: 100%;
-
 	margin-bottom: 0;
 	padding: 0 68px;
+	padding-bottom: 130px;
 
 	list-style: none;
 
@@ -36,4 +73,12 @@
 	&::-webkit-scrollbar-track {
 		background-color: $WebBG;
 	}
+}
+
+.spinner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
 }

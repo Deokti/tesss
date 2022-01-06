@@ -1,5 +1,5 @@
 import { Formik, useFormik } from "formik";
-import { IUser } from "../models/user.module";
+import { IUser } from "../models/user.model";
 import * as yup from "yup";
 
 interface IUseValidateProps {

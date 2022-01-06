@@ -9,7 +9,7 @@ export const useClickAwayListener = (): [
 
 	const open = (): void => setIsToggle(!isToggle);
 
-	const onClickAway = () => setIsToggle(false);
+	const onClickAway = (): void => setIsToggle(false);
 
 	return [isToggle, onClickAway, open];
 };

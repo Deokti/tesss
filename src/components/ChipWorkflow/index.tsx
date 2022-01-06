@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styles from "./ChipWorkflow.module.scss";
 import cn from "classnames";
-import { ChipWorkflowProps } from "./ChipWorkflow.props";
+import { ChipWorkflowProps, TWorkflow } from "./ChipWorkflow.props";
 import ClickAwayListener from "react-click-away-listener";
 import { useClickAwayListener } from "../../hooks/useClickAwayListener";
 
@@ -14,7 +14,12 @@ const WORKFLOW = [
 
 export const ChipWorkflow: FC<ChipWorkflowProps> = (props: ChipWorkflowProps) => {
 	const [isToggle, onClickAway, open] = useClickAwayListener();
-	const { className, value, ...anotherProps } = props;
+	const { className, value, onChangeWorkflow, ...anotherProps } = props;
+
+	const handlerChangeWorkflow = (workflow: TWorkflow) => (): void => {
+		onChangeWorkflow && onChangeWorkflow(workflow);
+		onClickAway();
+	};
 
 	return (
 		<ClickAwayListener onClickAway={onClickAway}>
@@ -42,7 +47,11 @@ export const ChipWorkflow: FC<ChipWorkflowProps> = (props: ChipWorkflowProps) =>
 				>
 					{WORKFLOW.map(({ id, value, className }) => {
 						return (
-							<li key={id} className={cn(styles.item, styles[className])}>
+							<li
+								key={id}
+								className={cn(styles.item, styles[className])}
+								onClick={handlerChangeWorkflow(value as TWorkflow)}
+							>
 								{value}
 							</li>
 						);

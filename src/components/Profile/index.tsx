@@ -33,7 +33,7 @@ export const Profile: FC<ProfileProps> = ({ avatar, ...props }: ProfileProps) =>
 						[styles.menuOpen]: isToggle,
 					})}
 				>
-					<li className={cn(styles.item, "transition")}>Изменить аватар</li>
+					{/*<li className={cn(styles.item, "transition")}>Изменить аватар</li>*/}
 					<li className={cn(styles.item, "transition")} onClick={onLogout}>
 						Выйти из аккаунта
 					</li>

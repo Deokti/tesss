@@ -1,7 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import auth from "./reducers/auth";
+import todos from "./reducers/todos";
 
-const rootReducer = combineReducers({ auth });
+const rootReducer = combineReducers({ auth, todos });
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const configStore = () =>

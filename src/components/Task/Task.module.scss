@@ -7,11 +7,50 @@
 
 	width: 100%;
 	max-width: 100%;
-	padding: 20px 18px;
+	min-height: 70px;
+	padding: 20px;
 
 	border-bottom: 0.5px solid $BorderColor;
 
 	font-family: Montserrat, sans-serif;
+}
+
+.form {
+	flex: 1;
+
+	height: 100%;
+}
+
+.input {
+	position: relative;
+
+	width: 80%;
+	margin: 0;
+	margin-left: -2px;
+
+	color: #2A2A2A;
+
+	border: none;
+
+	font-size: 16px;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.button {
+	padding: 2px 5px;
+
+	border: none;
+	background-color: transparent;
+
+	font-size: 12px;
+
+	&:active,
+	&:focus {
+		outline: none;
+	}
 }
 
 .title {
