@@ -5,7 +5,7 @@ import cn from "classnames";
 import { Link } from "react-router-dom";
 
 export const AuthWrapper: FC<AuthWrapperProps> = (props: AuthWrapperProps): ReactElement => {
-	const { children, title, linkTitle, to, errorMessage, } = props;
+	const { children, title, linkTitle, to, errorMessage } = props;
 
 	const isError = errorMessage && errorMessage.length > 0;
 
