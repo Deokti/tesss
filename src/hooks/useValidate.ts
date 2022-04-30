@@ -6,6 +6,7 @@ interface IUseValidateProps {
 	onSubmit(): Promise<void>;
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const useValidate = ({ onSubmit }: IUseValidateProps) => {
 	const formik = useFormik({
 		initialValues: initialValues(),

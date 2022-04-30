@@ -2,11 +2,13 @@ import React, { FC, ReactElement } from "react";
 import { AuthInput } from "../components/AuthInput";
 import { AuthWrapper } from "../components/AuthWrapper";
 import { Button } from "../components/Button";
-import { useAppDispatch } from "../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { useValidate } from "../hooks/useValidate";
 import { authRegister } from "../store/reducers/auth";
 
 export const Register: FC = (): ReactElement => {
+	const error = useAppSelector((store) => store.auth.error);
+
 	const dispatch = useAppDispatch();
 	const formik = useValidate({ onSubmit });
 
@@ -16,7 +18,7 @@ export const Register: FC = (): ReactElement => {
 	}
 
 	return (
-		<AuthWrapper title="Регистрация" linkTitle="Войти" to="/login">
+		<AuthWrapper title="Регистрация" linkTitle="Войти" to="/login" errorMessage={error}>
 			<form onSubmit={formik.handleSubmit}>
 				<AuthInput
 					appearance="email"

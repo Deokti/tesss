@@ -5,7 +5,9 @@ import cn from "classnames";
 import { Link } from "react-router-dom";
 
 export const AuthWrapper: FC<AuthWrapperProps> = (props: AuthWrapperProps): ReactElement => {
-	const { children, title, linkTitle, to } = props;
+	const { children, title, linkTitle, to, errorMessage, } = props;
+
+	const isError = errorMessage && errorMessage.length > 0;
 
 	return (
 		<div className={styles.wrapper}>
@@ -16,6 +18,8 @@ export const AuthWrapper: FC<AuthWrapperProps> = (props: AuthWrapperProps): Reac
 			<Link to={to} className={cn(styles.redirect, "d-block text-center mt-20")}>
 				{linkTitle}
 			</Link>
+
+			{isError && <span className={styles.error}>{errorMessage}</span>}
 		</div>
 	);
 };

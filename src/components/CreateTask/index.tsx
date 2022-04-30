@@ -7,6 +7,7 @@ import ClickAwayListener from "react-click-away-listener";
 import { ITodo } from "../../models/todo.model";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { createTodo, getTodoByAuthor } from "../../store/reducers/todos";
+import { useSelector } from "react-redux";
 
 interface CreateTaskProps {
 	onClickAway: () => void;
@@ -15,6 +16,7 @@ interface CreateTaskProps {
 export const CreateTask = ({ onClickAway }: CreateTaskProps): ReactElement => {
 	const userId = useAppSelector((store) => store.auth.user?.id);
 	const dispatch = useAppDispatch();
+
 	const [todo, setTodo] = useState<ITodo>({
 		author: userId || "",
 		priority: "Незначительный",

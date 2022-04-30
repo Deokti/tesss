@@ -5,4 +5,5 @@ export interface AuthWrapperProps {
 	children?: ReactElement;
 	linkTitle: string;
 	to: string;
+	errorMessage?: string | null;
 }

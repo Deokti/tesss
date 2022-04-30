@@ -23,8 +23,8 @@ export const authLogin = createAsyncThunk(
 			const response = await AuthService.login(email, password);
 			if (response.statusText !== "OK") throw new Error(response.statusText);
 			return response.data;
-		} catch (_) {
-			return rejectWithValue("Пользователь с таким Email или паролем не существует");
+		} catch (error: any) {
+			return rejectWithValue(error.response.data.message);
 		}
 	},
 );
@@ -37,7 +37,7 @@ export const authRegister = createAsyncThunk(
 			if (response.statusText !== "OK") throw new Error(response.statusText);
 			return response.data;
 		} catch (error: any) {
-			return rejectWithValue(error.message);
+			return rejectWithValue(error.response.data.message);
 		}
 	},
 );
@@ -51,6 +51,9 @@ export const authSlice = createSlice({
 			state.user = null;
 			state.error = null;
 			state.loading = false;
+		},
+		clearError(state: IAuthState) {
+			state.error = null;
 		},
 	},
 	extraReducers: {

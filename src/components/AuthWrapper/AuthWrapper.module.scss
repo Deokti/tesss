@@ -1,8 +1,9 @@
 @import "../../assets/scss/colors.scss";
 
 .wrapper {
+	width: 100%;
 	min-width: 400px;
-
+	max-width: 400px;
 	padding: 40px;
 	padding-bottom: 20px;
 
@@ -36,4 +37,19 @@
 
 		color: rgb(0 0 0 / 40%);
 	}
+}
+
+.error {
+	display: block;
+
+	margin-top: 10px;
+
+	text-align: center;
+
+	color: #FF4460;
+
+	font-family: Montserrat, sans-serif;
+
+	font-size: 16px;
+	font-weight: 800;
 }

@@ -5,7 +5,6 @@ import { getTodoByAuthor } from "../../store/reducers/todos";
 import { CreateTask } from "../CreateTask";
 import { CurrentTasks } from "../CurrentTasks";
 import { Header } from "../Header";
-import { ITask } from "../Task/Task.props";
 import { TaskContainer } from "../TaskContainer";
 import styles from "./App.module.scss";
 
